@@ -1,0 +1,155 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="/static/assets/img/favtest.png" type="image/png">
+        <title>Admin Log into TechnoV</title>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'st/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'st/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/nice-select/css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'st/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'st/css/responsive.css' %}">
+    </head>
+    <style>
+        .color{
+          background-color: #781B1B;
+          font-family: Montserrat;
+        }
+        body{
+          background-color: #781B1B;
+          font-family: Montserrat;
+        }
+        .bton{
+          margin-top: 10in;
+          font-family: Montserrat;
+        }
+        .fnt{
+          font-family: Montserrat;
+        }
+        .txt{
+          font-size: 30px; 
+          color: black; 
+          background-color: #ffff;
+        }
+        .btn{
+          color: #ffdf16;
+        }
+        .center{
+          margin: auto;
+          border-spacing: 10px;
+        }
+        .center1{
+          border-spacing: 10px;
+          margin-left: 10em;
+        }
+        label{
+          font-size: 20px; 
+        }
+        img{
+          left: 50%!important;
+        }
+        .footer {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          height: 60px;
+          background-color: #781B1B; 
+        }
+        .block {
+          display: block;
+          width: 22.5%;
+          border: none;
+          background-color: #DCC532;
+          /* padding: 3px 5px; */
+          font-size: 16px;
+          cursor: pointer;
+          text-align: center;
+        }
+    </style>
+    <body>
+        <!--================Header Area =================-->
+        <div class="container text-center">
+          <a class="navbar-brand logo_h" href="{% url 'loginoptions_page_view'%}"><br>
+            <img src="{% static 'assets/img/technov1.jpg' %}" alt="" display="block" height="100%!important" width="350px">
+          </a>
+        </div>
+        <!--================Header Area =================-->
+        
+        <!--================ Accomodation Area  =================-->
+        
+        <div class="col-md-12 text-center"><br><br><br>
+              <h3 class="title_color fnt" style="color: white;">ADMIN AUTHENTICATION</h3>
+              <hr style="width:50%; background-color:white;">
+              <div class="row justify-content-center">
+                <div class="card-body">
+                  <form class="g-3 needs-validation" method = "post" novalidate >
+                    {%  csrf_token  %}
+                    <div class="col-lg-3 col-sm-6 center">
+                      <label for="yourUsername" class="form-label" style="color:#FFF">USERNAME</label>
+                      <div class="input-group has-validation" >
+                        <input type="text" name="username" class="form-control" id="username" style="color:#781B1B ;background-color: #DCC532; border-color: #DCC532;" required>
+                        <div class="invalid-feedback">Please enter your username.</div>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 center">
+                      <label for="yourPassword" class="form-label" style="color:#fff"><br>PASSWORD</label>
+                      <input type="password" name="password" class="form-control" id="password" style="color:#781B1B ;background-color: #DCC532; border-color: #DCC532;" required>
+                      <div class="invalid-feedback">Please enter your password!</div>
+                    </div><br><br>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="col-lg-3 col-sm-6 center">
+                        <button class="btn btn-primary center w-100" type="reset" style="color:#781B1B ;background-color: white; border-color: #DCC532;"><strong>CLEAR</strong></button>
+                        </div><br>
+                      <div class="col-lg-3 col-sm-6 center">
+                        <button class="btn btn-primary w-100" type="submit"style="color:#781B1B ;background-color: #DCC532; border-color: #DCC532;"><strong>LOG IN</strong></button>
+                      </div>
+                    </div>
+                  </form>
+                </div><br>
+              </div>
+              {% for msg in messages%}
+                <h5 style="color:black" align="center"> {{msg}}<h5>
+              {% endfor%}
+            </div>
+          </a>
+        </div><br><br><br><br>
+        <!--================ Accomodation Area  =================-->
+        
+        <!--================ start footer Area  =================-->    
+        <footer class="bg-light text-center text-lg-start">
+          <div class="footer">
+            <center style="color: #ffff;">Designed by <a style="color: #DCC532;"><strong><span>TeamDosan</span></strong></a></center>
+          </div>
+        </footer>
+        <!--================ End footer Area  =================-->
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'st/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'st/js/popper.js' %}"></script>
+        <script src="{% static 'st/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'st/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'st/js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'st/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js' %}"></script>
+        <script src="{% static 'st/vendors/nice-select/js/jquery.nice-select.js' %}"></script>
+        <script src="{% static 'st/js/mail-script.js' %}"></script>
+        <script src="{% static 'st/js/stellar.js' %}"></script>
+        <script src="{% static 'st/vendors/lightbox/simpleLightbox.min.js' %}"></script>
+        <script src="{% static 'st/js/custom.js' %}"></script>
+    </body>
+</html>

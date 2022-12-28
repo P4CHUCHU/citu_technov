@@ -1,0 +1,170 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="/static/assets/img/favtest.png" type="image/png">
+        <title>TechnoV</title>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'st/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'st/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/nice-select/css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'st/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'st/css/responsive.css' %}">
+    </head>
+    <style>
+        .color{
+          background-color: #781B1B;
+          font-family: Montserrat;
+        }
+        body{
+          background-color: #781B1B;
+          font-family: Montserrat;
+        }
+        .bton{
+          margin-top: 10in;
+          font-family: Montserrat;
+        }
+        .fnt{
+          font-family: Montserrat;
+        }
+        .txt{
+          font-size: 30px; 
+          color: black; 
+          background-color: #ffff;
+        }
+        .btn{
+          color: #ffdf16;
+        }
+        .center{
+          margin: auto;
+          border-spacing: 10px;
+        }
+        .footer {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          height: 60px;
+          background-color: #781B1B; 
+        }
+    </style>
+    <body>
+        <!--================Header Area =================-->
+        <header class="header_area color">
+            <div class="container color">
+                <nav class="navbar navbar-expand-lg navbar-light color" style="box-shadow: 2px 5px #610A0C;">
+                    <a class="navbar-brand logo_h" href="{% url 'adminDashboard_page_view'%}"><img src="{% static 'assets/img/technov1.jpg' %}" alt="" height="80px" width=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item active"><a class="nav-link" href="{% url 'adminDashboard_page_view'%}" style="font-family: Montserrat;font-size: larger; color: #ffdf16;">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'loginoptions_page_view'%}" style="font-family: Montserrat; font-size: larger; color: #ffdf16;">Sign Out</a></li>
+                        </ul>
+                    </div> 
+                </nav>
+            </div>
+        </header><br>
+        <!--================Header Area =================-->
+        
+        <!--================ Accomodation Area  =================-->
+        <section class="accomodation_area section_gap color">
+            <div class="container">
+                <div class="section_title text-center">
+                    <h2 class="title_color fnt" style="color: white;">ADMIN DASHBOARD</h2>
+                </div>
+                <div class="row mb_30">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="accomodation_item text-center">
+                            <a href="{% url 'admin_registeredVehicle_page_view'%}">
+                                <div class="hotel_img" style="background-color: #ffff; border-radius: 25px;">
+                                    <img src="{% static 'st/image/park.png' %}" alt="" width="100" height="100" style="margin-top: 30px;">
+                                    <h4 class="sec_h4 fnt" style="color: #781B1B;margin-top:15px;">Registered Vehicles</h4>
+                                    
+                                    <h6 class=" txt fnt">{{vehicle}}</h6><br>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="accomodation_item text-center">
+                            <a href="{% url 'admin_parkingRecords_page_view'%}">
+                                <div class="hotel_img" style="background-color: #ffff; border-radius: 25px;">
+                                    <img src="{% static 'st/image/parking.png' %}" alt=""width="100" height="100" style="margin-top: 30px;">
+                                    <h4 class="sec_h4 fnt" style="color: #781B1B;margin-top:15px;">Parked Vehicles</h4>
+                                    <h6 class=" txt fnt">{{records}}</h6><br>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                   
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="accomodation_item text-center">
+                          <a href="{% url 'createAccount_page_view'%}">
+                            <div class="hotel_img" style="background-color: #ffff; border-radius: 25px;">
+                                <img src="{% static 'st/image/register.png' %}" alt="" width="100" height="100" style="margin-top: 30px;">
+                                <h4 class="sec_h4 fnt" style="color: #781B1B;margin-top:15px;">Create User Account</h4>
+                                <h6 class=" txt fnt" style="color: white;">....</h6><br>
+                            </div>    
+                        </div>
+                    </div></a>
+
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="accomodation_item text-center">
+                          <a href="{% url 'admin_userRecord_page_view'%}">
+                            <div class="hotel_img" style="background-color: #ffff; border-radius: 25px;">
+                                <img src="{% static 'st/image/group.png' %}" alt="" width="100" height="100" style="margin-top: 30px;">  
+                                <h4 class="sec_h4 fnt" style="color: #781B1B; margin-top: 15px;">User Accounts</h4>
+                                <h6 class=" txt fnt">{{user}}</h6><br>
+                            </div>
+                        </div>
+                    </div></a>
+
+
+                    
+                </div>
+            </div>
+        </section><br><br>
+        <!--================ Accomodation Area  =================-->
+        
+       
+        
+        <!--================ start footer Area  =================-->    
+        <footer class="bg-light text-center text-lg-start">
+            <div class="footer">
+              <center style="color: #ffff;">Designed by <a style="color: #DCC532;"><strong><span>TeamDosan</span></strong></a></center>
+            </div>
+          </footer>
+        <!--================ End footer Area  =================-->
+        
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'st/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'st/js/popper.js' %}"></script>
+        <script src="{% static 'st/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'st/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'st/js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'st/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js' %}"></script>
+        <script src="{% static 'st/vendors/nice-select/js/jquery.nice-select.js' %}"></script>
+        <script src="{% static 'st/js/mail-script.js' %}"></script>
+        <script src="{% static 'st/js/stellar.js' %}"></script>
+        <script src="{% static 'st/vendors/lightbox/simpleLightbox.min.js' %}"></script>
+        <script src="{% static 'st/js/custom.js' %}"></script>
+    </body>
+</html>

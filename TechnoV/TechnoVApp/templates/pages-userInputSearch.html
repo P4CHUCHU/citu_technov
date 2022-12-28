@@ -1,0 +1,356 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="static/assets/img/favtest.png" type="image/png">
+        <title>TechnoV</title>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'st/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'st/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/nice-select/css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'st/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'st/css/responsive.css' %}">
+    </head>
+    <style>
+        .color{
+          background-color: #781B1B;
+          font-family: Montserrat;
+        }
+        body{
+          background-color: #781B1B;
+          font-family: Montserrat;
+        }
+        .bton{
+          font-family: Montserrat;
+        }
+        .fnt{
+          font-family: Montserrat;
+        }
+        .txt{
+          font-size: 30px; 
+          color: black; 
+          background-color: #ffff;
+        }
+        
+        .css-button-rounded--grey {
+        min-width: 220px;
+        height: 40px;
+        color: #741e1e;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        border-radius: 5px;
+        border: 2px solid #e5c522;
+        background: #e5c522;
+        }
+        .css-button1-rounded--grey {
+          min-width: 220px;
+          height: 40px;
+          color: #741e1e;
+          padding: 5px 10px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          position: relative;
+          display: inline-block;
+          outline: none;
+          border-radius: 5px;
+          border: 2px solid #ffff;
+          background: #ffff;
+        }
+        .css-button-rounded--grey:hover {
+          background: #741e1e;
+          color: #e5c522
+        }
+        .css-button1-rounded--grey:hover {
+          background: #ffff;
+          color: #e5c522
+        }
+        .footer {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          height: 60px;
+          background-color: #781B1B; 
+        }
+        .containerr {
+          display:flex;
+          justify-content: center;
+        }
+        .fixed {
+          background-color:#ffff;
+          width: 100px;
+        }
+        .flex-item {
+            background-color:#ffff;
+            /* flex-grow: 1; */
+        }
+        .footer {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          height: 60px;
+          background-color: #781B1B; 
+        }
+    </style>
+    <body>
+        <!--================Header Area =================-->
+        <header class="header_area color">
+            <div class="container color">
+                <nav class="navbar navbar-expand-lg navbar-light color"  style="box-shadow: 2px 5px #610A0C;">
+                    <a class="navbar-brand logo_h" href="userDashboard"><img src="{% static 'assets/img/technov1.jpg' %}" alt="" height="80px" width=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item active"><a class="nav-link" href="userDashboard" style="font-family: Montserrat;font-size: larger; color: #ffdf16;">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="timeIn" style="font-family: Montserrat;font-size: larger; color: #ffdf16;">Time In</a></li>
+                            <li class="nav-item"><a class="nav-link" href="timeOut" style="font-family: Montserrat;font-size: larger; color: #ffdf16;">Time out</a></li>
+                            <li class="nav-item"><a class="nav-link" href="loginoptions" style="font-family: Montserrat; font-size: larger; color: #ffdf16;">Sign Out</a></li>
+                        </ul>
+                    </div> 
+                </nav>
+            </div>
+        </header><br>
+        <!--================Header Area =================-->
+        
+        <!--================ Accomodation Area  =================-->
+        <body>
+              <section class="section register  d-flex flex-column align-items-center justify-content-center py-4 color"  style="font-family: Montserrat;">
+                <div class="container"  style="font-family: Montserrat;">
+                  <BR><BR>
+                  {% for msg in messages%}
+              <h5 style="color:red" align="center"> {{msg}}<h5>
+                {% endfor%}  
+                
+              </section>
+              <div class="card-body" style="background-color: #781B1B; box-sizing: border-box; padding-left:2%; padding-right:2%;">
+                <h5 class="card-title fnt" style="color: white; font-size: 25px;text-align: center;">ENTER REGISTERED PLATE/STICKER NUMBER: </h5>
+                <form class="row g-3 needs-validation" method = "post" novalidate>
+                  {%  csrf_token  %}
+                     <div class="col-12">
+                      <div class="containerr">
+                        <label for="inputSearch" class="form-label" style="font-family: Montserrat; color: white;font-size: large;"></label>
+                        <input type="text" name="platenumber" class="flex-item"  size="25" id="platenumber" required>
+                      
+                    <button class="btn btn-primary fixed" name="btnSearch" type="submit" style="background-color: #DCC532; color:#741e1e;border-color: #741e1e;"><strong>SEARCH</strong></button>
+                  </div></div>
+                </form>
+                <br>
+                <table class="table table-borderless datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col"  class="text-center" style="color: #DCC532;">Vehicle Plate Number</th>
+                      <th scope="col"   class="text-center" style="color: #DCC532;">Registered Owner</th>
+                      <th scope="col"  class="text-center" style="color: #DCC532;">Identifier</th>
+                      <th scope="col" class="text-center" style="color: #DCC532;">Action</th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody class="table card-body">
+                      {% for r in registered %}
+                    <tr>
+                      <td class="text-center">{{r.platenumber}}</td>
+                      <td class="text-center">{{r.firstname}} {{r.lastname}}</td>
+                      <td class="text-center">{{r.identifier}}</td>
+                      <td class="text-center">
+                          <a type="button" class="btn bton"  style="background-color: #DCC532; color: #781B1B;" href="#" data-toggle="modal" data-target="#newModal-{{r.id}}">VIEW</a>
+                            
+                          </td>
+                    </tr>
+                     <!-- Modal VIEW-->
+                <div class="modal fade" id="newModal-{{r.id}}" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header" style="background-color:#741e1e">
+                        <h5 class="modal-title" style="color:white">VEHICLE DETAILS</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <form id="updateForm" method="post" >
+                      {% csrf_token %}
+                      <div class="modal-body">
+                         <input type="text" name="id" value = {{r.id}} hidden> 
+                        <div class="row">
+                          <div class="col-12" id="startup-tab-1">
+                            <br>
+                            
+                            <div class="col-md-4">
+                              <label for="inputIdentifier" class="form-label" style="color:#741e1e">Identifier</label>
+                              <input type="text" name="identifier" class="form-control" id="identifier" value = {{r.identifier}} disabled>
+                              
+                            </div>
+        
+                            <!-- End Identifier-->
+                            <!-- Classification -->
+                            <div class="col-md-4">
+                              <label for="inputClassification" class="form-label" style="color:#741e1e">Classification</label>
+                              <input type="text" name="classification" class="form-control" id="inputClassification" value = {{r.classification}} disabled>
+                              
+                            </div>
+                            <!-- End Classification -->
+                            <!-- Applicant's Fullname --></div><br><br><br>
+                              <legend class="col-12" style="color:#DCC532"><br>Name of the Applicant/Driver</legend>
+                              <div class="col-12">
+                                <div class="col-12">
+                                  <label for="lastName" class="form-label">Lastname</label>
+                                  <input type="text" name="lastname" class="form-control" id="lastname" value = {{r.lastname}} disabled>
+                                 </div>
+                              
+                              <div class="col-12">
+                                <label for="firstName" class="form-label">Firstname</label>
+                                <input type="text" name="firstname" class="form-control" id="firstname" value = {{r.firstname}} disabled>
+                               </div>
+                              <div class="col-12">
+                                <label for="middleName" class="form-label">Middlename</label>
+                                <input type="text" name="middlename" class="form-control" id="middlename" value = {{r.middlename}} disabled>
+                               </div>
+                            <!-- End Applicant's Fullname -->
+                            <!-- Departments -->
+                            <div class="col-md-12">
+                              <label for="inputDepartment" class="form-label" style="color:#741e1e">Department</label>
+                              <input type="text" class="form-control" id="department" name="department" value = "{{r.department}}" disabled>
+                                
+                            </div>
+                            <!-- End Departments -->
+                            <!-- Course and Year -->
+                            <div class="col-12">
+                              <label for="CourseYear" class="form-label" style="color:#741e1e">Course and Year</label>
+                              <input type="text" name="courseyr" class="form-control" id="CourseYear" value = {{r.courseyr}} disabled>
+                             </div>
+                            <!-- End of Course and Year-->
+                            <!-- ID Number -->
+                            <div class="col-12">
+                              <label for="idnumber" class="form-label" style="color:#741e1e">ID Number</label>
+                              <input type="text" name="idnumber" class="form-control" id="idnumber" placeholder="20-1234-567" value = {{r.idnumber}} disabled>
+                             </div></div>
+                            <!-- End ID Number -->
+                            <!-- Vehicle's Registered Owner -->
+                              <legend class="col-12" style="color:#DCC532"><hr>Name of the Vehicle Registered Owner</legend>
+                              <div class="col-12">
+                                <div class="col-12">
+                                  <label for="Ownerlname" class="form-label">Lastname</label>
+                                  <input type="text" name="Ownerlname" class="form-control" id="Ownerlname" value = {{r.Ownerlname}} disabled>
+                                 </div>
+                              
+                              <div class="col-12">
+                                <label for="Ownerfname" class="form-label">Firstname</label>
+                                <input type="text" name="Ownerfname" class="form-control" id="Ownerfname" value = {{r.Ownerfname}} disabled>
+                              </div>
+                              <div class="col-12">
+                                <label for="Ownermname" class="form-label">Middlename</label>
+                                <input type="text" name="Ownermname" class="form-control" id="Ownermname" value = {{r.Ownermname}} disabled>
+                               </div>
+                            <!-- End Vehicle's Registered Owner Fullname -->
+                            <!-- Address -->
+                            <div class="col-12">
+                              <label for="address" class="form-label" style="color:#741e1e">Address</label>
+                              <input type="text" name="address" class="form-control" id="address" value = {{r.address}} disabled>
+                             </div>
+                            <!-- End Address -->
+                            <!-- Mobile Number -->
+                            <div class="col-12">
+                              <label for="mobnum" class="form-label" style="color:#741e1e">Mobile Number</label>
+                              <input type="text" name="mobnum" class="form-control" id="mobnum" value = {{r.mobnum}} disabled>
+                            </div>
+                            <!-- End Mobile Number -->
+                            <!-- Landline Number -->
+                            <div class="col-12">
+                              <label for="landline" class="form-label" style="color:#741e1e">Landline Number</label>
+                              <input type="text" name="landline" class="form-control" id="landline" value = {{r.landline}} disabled>
+                            </div>
+                            <!-- End Landline Number -->
+                            <!-- Relation of Vehicle Owner to Student/Employee -->
+                            <div class="col-12">
+                              <label for="relation" class="form-label" style="color:#741e1e">Relation of vehicle's registered owner to student/employee</label>
+                              <input type="text" name="relation" class="form-control" id="relation" value = {{r.relation}} disabled>
+                            </div>
+                          </div></div></div><hr>
+                            <!-- End Relation of Vehicle Owner to Student/Employee -->
+                            <!-- Vehicle's Data -->
+                              <legend class="col-12" style="color:#DCC532">Vehicle's Data</legend>
+                              <div class="col-12">
+                                <div class="col-12">
+                                  <label for="brand" class="form-label">Vehicle Make</label>
+                                  <input type="text" name="brand" class="form-control" id="brand" value = {{r.brand}} disabled>
+                                </div>
+                              
+                              <div class="col-12">
+                                <label for="platenumber" class="form-label">Plate Number</label>
+                                <input type="text" name="platenumber" class="form-control" id="platenumber" value = "{{r.platenumber}}" readonly>
+                                
+                              </div>
+                              <div class="col-md-12">
+                                <label for="vehicleType" class="form-label">Vehicle Type</label>
+                                <input type="text" name="vehicleType" class="form-control" id="inputvehicleType" value = {{r.vehicleType}} disabled>
+                          
+                              </div>
+                              <div class="col-12">
+                                <label for="color" class="form-label">Color</label>
+                                <input type="text" name="color" class="form-control" id="color" value = {{r.color}} disabled>
+                                </div>
+                              <div class="col-12">
+                                <label for="prevStickerNo" class="form-label">Previous Year's CIT Car Sticker Number</label>
+                                <input type="text" name="prevStickerNo" class="form-control" id="prevStickerNo" value = {{r.prevStickerNo}} disabled>
+                               </div>
+                      </div>
+                      <div class="modal-footer">  
+                          <button type="submit" id = "btnIn" name = "btnIn" class="button" style="color: #741e1e;"><strong>TIME IN</strong></button>                                
+                          <button type="submit" id = "btnOut" name = "btnOut" class="button btn-secondary" style="color: #741e1e;"><strong>TIME OUT</strong></button>                          
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endfor%}
+              </div>
+              </section>
+
+            </div>
+        <!--================ Accomodation Area  =================-->
+        
+        <!--================ start footer Area  =================-->    
+        <footer class="bg-light text-center text-lg-start">
+          <!-- Copyright -->
+          <div class="footer">
+            <!-- <center style="color: #ffff;"> Copyright &copy; 2022 <strong><span>TechnoV</span></strong> . All Rights Reserved.</center> -->
+            <center style="color: #ffff;">Designed by <a style="color: #DCC532;"><strong><span>TeamDosan</span></strong></a></center>
+          </div>
+          <!-- Copyright -->
+        </footer>
+        <!--================ End footer Area  =================-->
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'st/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'st/js/popper.js' %}"></script>
+        <script src="{% static 'st/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'st/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'st/js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'st/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js' %}"></script>
+        <script src="{% static 'st/vendors/nice-select/js/jquery.nice-select.js' %}"></script>
+        <script src="{% static 'st/js/mail-script.js' %}"></script>
+        <script src="{% static 'st/js/stellar.js' %}"></script>
+        <script src="{% static 'st/vendors/lightbox/simpleLightbox.min.js' %}"></script>
+        <script src="{% static 'st/js/custom.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,290 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon" href="static/assets/img/favtest.png" type="image/png">
+  <title>Register Vehicle | TechnoV</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'st/css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'st/vendors/linericon/style.css' %}">
+  <link rel="stylesheet" href="{% static 'st/css/font-awesome.min.css' %}">
+  <link rel="stylesheet" href="{% static 'st/vendors/owl-carousel/owl.carousel.min.css' %}">
+  <link rel="stylesheet" href="{% static 'st/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css' %}">
+  <link rel="stylesheet" href="{% static 'st/vendors/nice-select/css/nice-select.css' %}">
+  <link rel="stylesheet" href="{% static 'st/vendors/owl-carousel/owl.carousel.min.css' %}">
+  <!-- main css -->
+  <link rel="stylesheet" href="{% static 'st/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'st/css/responsive.css' %}">
+</head>
+<style>
+  body{
+    background-color: #741e1e;
+  }
+  label{
+    color: #ffff;
+  }
+</style>
+<body>
+  <main>
+     <!--================Header Area =================-->
+     <header class="header_area color">
+      <div class="container color">
+          <nav class="navbar navbar-expand-lg navbar-light color" style="box-shadow: 2px 5px #610A0C;">
+              <a class="navbar-brand logo_h" href="userDashboard"><img src="{% static 'assets/img/technov1.jpg' %}" alt="" height="80px" width=""></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                  <ul class="nav navbar-nav menu_nav ml-auto">
+                      <li class="nav-item active"><a class="nav-link" href="userDashboard" style="font-family: Montserrat;font-size: larger; color: #ffdf16;">Home</a></li>
+                      <li class="nav-item"><a class="nav-link" href="timeIn" style="font-family: Montserrat;font-size: larger; color: #ffdf16;">Time In</a></li>
+                      <li class="nav-item"><a class="nav-link" href="timeOut" style="font-family: Montserrat;font-size: larger; color: #ffdf16;">Time out</a></li>
+                      <li class="nav-item"><a class="nav-link" href="loginoptions" style="font-family: Montserrat; font-size: larger; color: #ffdf16;">Sign Out</a></li>
+                  </ul>
+              </div> 
+          </nav>
+      </div>
+  </header><br>
+      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4" style="background-color: #781B1B; ">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                <a href="userDashboard" class="logo d-flex align-items-left w-auto">
+                </a><br><br><br>
+              {% for msg in messages%}
+              <h5 style="color:red" align="center"> {{msg}}<h5>
+               {% endfor%}
+              <div class="card mb-3" style="background-color: #781B1B;">
+                <div class="card-body">
+                  <div class="pt-4 pb-2">
+                    <h5 style="font-size: 25px; text-align: center; font-family: Montserrat; color:#ffff"><strong>VEHICLE REGISTRATION</strong></h5>
+                    <br>
+                  </div>
+
+                  <form class="row g-3 needs-validation" method = "post" novalidate>
+                    {%  csrf_token  %}
+                    <!-- Identifier -->
+                    <div class="col-md-6">
+                      <label for="inputIdentifier" class="form-label" style="color:#DCC532">Identifier</label>
+                      <select id="inputIdentifier" class="form-select" name="identifier">
+                        <option selected>Parking</option>
+                        <option>Drop Off</option>
+                        <option>Guest</option>
+                      </select><br>
+                    </div>
+
+                    <!-- End Identifier-->
+                    <!-- Classification -->
+                    <div class="col-md-6">
+                      <label for="inputClassification" class="form-label" style="color:#DCC532">Classification</label>
+                      <select id="inputClassification" class="form-select" name="classification">
+                        <option selected>Faculty</option>
+                        <option>Admin</option>
+                        <option>Student</option>
+                        <option>Parent/Guardian</option>
+                        <option>Others</option>
+                      </select><br><br><br><br>
+                    </div><br>
+                    <!-- End Classification -->
+                    <!-- Applicant's Fullname -->
+                      <legend class="col-12" style="color:#DCC532">Name of the Applicant/Driver</legend>
+                      <div class="col-12">
+                        <label for="lastName" class="form-label">Lastname</label>
+                        <input type="text" name="lastname" class="form-control" id="lastname" required>
+                        <div class="invalid-feedback">Please, enter Lastname!</div>
+                      </div>
+                      <div class="col-12">
+                        <label for="firstName" class="form-label">Firstname</label>
+                        <input type="text" name="firstname" class="form-control" id="firstname" required>
+                        <div class="invalid-feedback">Please, enter Firstname!</div>
+                      </div>
+                      <div class="col-12">
+                        <label for="middleName" class="form-label">Middlename</label>
+                        <input type="text" name="middlename" class="form-control" id="middlename" required>
+                        <div class="invalid-feedback">Please, enter Middlename!</div><br>
+                      </div>
+                    <!-- End Applicant's Fullname -->
+                    <!-- Departments -->
+                    <div class="col-md-12">
+                      <label for="inputDepartment" class="form-label">Department</label>
+                      <select id="inputDepartment" class="form-select" name="department">
+                        <option selected>College of Arts Science and Education</option>
+                        <option>College of Computer Studies</option>
+                        <option>College of Engineering and Architecture</option>
+                        <option>College of Management, Business and Accountancy</option>
+                        <option>College of Nursing and Allied Health Sciences</option>
+                        <option>Department of Humanities and Behavioral Sciences</option>
+                        <option>DLLC, and Math & Sciences</option>
+                        <option>Teacher Education</option>
+                        <option>Information Technology</option>
+                        <option>Computer Science</option>
+                        <option>Architecture</option>
+                        <option>Civil Engineering</option>
+                        <option>Chemichal Engineering</option>
+                        <option>Computer Engineering</option>
+                        <option>Electrical Engineering</option>
+                        <option>Electronics Engineering</option>
+                        <option>Industrial Engineering</option>
+                        <option>Mechanical Engineering</option>
+                        <option>Mining Engineering</option>
+                        <option>Department of Hospitality and Tourism Management</option>
+                        <option>Accountancy</option>
+                        <option>Business Administration and Office Administration</option>
+                        <option>Finance and Accounting</option>
+                        <option>Physical Education</option>
+                        <option>Department of Engineering, Mathematics, Physics and Chemistry</option>
+                        <option>N/A</option>
+                      </select>
+                    </div>
+                    <!-- End Departments -->
+                    <!-- Course and Year -->
+                    <div class="col-12">
+                      <label for="CourseYear" class="form-label">Course and Year</label>
+                      <input type="text" name="courseyr" class="form-control" id="CourseYear" placeholder="Ex: BSIT-1 or N/A for guests" required>
+                      <div class="invalid-feedback">Please, enter Course and Year!</div>
+                    </div>
+                    <!-- End of Course and Year-->
+                    <!-- ID Number -->
+                    <div class="col-12">
+                      <label for="idnumber" class="form-label">ID Number</label>
+                      <input type="text" name="idnumber" class="form-control" id="idnumber" placeholder="Ex: 20-1234-567 or N/A for guests" required>
+                      <div class="invalid-feedback">Please, enter ID Number!</div><br>
+                    </div>
+                    <!-- End ID Number -->
+                    <!-- Vehicle's Registered Owner -->
+                      <legend class="col-12" style="color:#DCC532">Name of the Vehicle Registered Owner</legend>
+                      <div class="col-12">
+                        <!-- <div class="col-12"> -->
+                          <label for="Ownerlname" class="form-label">Lastname</label>
+                          <input type="text" name="Ownerlname" class="form-control" id="Ownerlname" required>
+                          <div class="invalid-feedback">Please, enter Lastname!</div>
+                        </div>
+                      <!-- </div> -->
+                      <div class="col-12">
+                        <label for="Ownerfname" class="form-label">Firstname</label>
+                        <input type="text" name="Ownerfname" class="form-control" id="Ownerfname" required>
+                        <div class="invalid-feedback">Please, enter Firstname!</div>
+                      </div>
+                      <div class="col-12">
+                        <label for="Ownermname" class="form-label">Middlename</label>
+                        <input type="text" name="Ownermname" class="form-control" id="Ownermname" required>
+                        <div class="invalid-feedback">Please, enter Middlename!</div>
+                      </div>
+                    <!-- End Vehicle's Registered Owner Fullname -->
+                    <!-- Address -->
+                    <div class="col-12">
+                      <label for="address" class="form-label">Address</label>
+                      <input type="text" name="address" class="form-control" id="address" required>
+                      <div class="invalid-feedback">Please enter Address!</div>
+                    </div>
+                    <!-- End Address -->
+                    <!-- Mobile Number -->
+                    <div class="col-12">
+                      <label for="mobnum" class="form-label">Mobile Number</label>
+                      <input type="text" name="mobnum" class="form-control" id="mobnum" required>
+                      <div class="invalid-feedback">Please enter Mobile Number!</div>
+                    </div>
+                    <!-- End Mobile Number -->
+                    <!-- Landline Number -->
+                    <div class="col-12">
+                      <label for="landline" class="form-label">Landline Number</label>
+                      <input type="text" name="landline" class="form-control" id="landline" required>
+                      <div class="invalid-feedback">Please enter Landline Number!</div>
+                    </div>
+                    <!-- End Landline Number -->
+                    <!-- Relation of Vehicle Owner to Student/Employee -->
+                    <div class="col-12">
+                      <label for="relation" class="form-label">Relation of vehicle's registered owner to student/employee</label>
+                      <input type="text" name="relation" class="form-control" id="relation"  placehoder="N/A for vehicle owner" required>
+                      <div class="invalid-feedback">Please, enter Relation!</div><br>
+                    </div>
+                    <!-- End Relation of Vehicle Owner to Student/Employee -->
+                    <!-- Vehicle's Data -->
+                      <legend class="col-12" style="color:#DCC532">Vehicle's Data</legend>
+                      <!-- <div class="col-12"> -->
+                        <div class="col-12">
+                          <label for="brand" class="form-label">Vehicle Make</label>
+                          <input type="text" name="brand" class="form-control" id="brand" required>
+                          <div class="invalid-feedback">Please, enter Vehicle Make!</div>
+                        </div>
+                      <!-- </div> -->
+                      <div class="col-12">
+                        <label for="platenumber" class="form-label">Plate Number</label>
+                        <input type="text" name="platenumber" class="form-control" id="platenumber" required>
+                        <div class="invalid-feedback">Please, enter Plate Number!</div>
+                      </div>
+                      <div class="col-md-12">
+                        <label for="vehicleType" class="form-label">Vehicle Type</label>
+                        <select id="inputvehicleType" class="form-select" name="vehicleType">
+                          <option selected>2-Wheels</option>
+                          <option>4-Wheels</option>
+                        </select>
+                      </div>
+                      <div class="col-12">
+                        <label for="color" class="form-label">Color</label>
+                        <input type="text" name="color" class="form-control" id="color" required>
+                        <div class="invalid-feedback">Please, enter Vehicle's Color!</div>
+                      </div>
+                      <div class="col-12">
+                        <label for="prevStickerNo" class="form-label">Previous Year's CIT Car Sticker Number</label>
+                        <input type="text" name="prevStickerNo" class="form-control" id="prevStickerNo" placeholder="N/A for guests" required>
+                        <div class="invalid-feedback">Please, enter Previous Year's CIT Car Sticker Number!</div>
+                      </div>
+                      <!-- End Vehicle's Data -->
+                      <div class="col-12">
+                        <div class="form-check" style="padding-left: 8%; padding-right: 5%;">
+                          <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                          <label class="form-check-label" for="gridCheck" style="font-size: 10px;">
+                            I hereby bind myself by all the CIT University  terms and conditions on the operation and routing of vehicles, speed limit and parking. I further certify that I will return the CIT-U sticker upon sale or transfer of my vehicle and inform the concerned authorities accordingly.
+                          </label>
+                        </div>
+                      </div>
+                    
+                    <div class="col-12"><br>
+                      <button class="btn btn-primary w-100" type="submit" style="background-color: #741e1e; color:#741e1e; border-color:#DCC532"><b>Register</b></button>
+                    </div>
+                  </form>
+
+                </div>
+              </div><br>
+
+        <!--================ start footer Area  =================-->    
+        <div class="text-center text-lg-start" style="position: fixed; bottom: 0; width: 100%; height: 60px; background-color: #781B1B; opacity: 0.95; border-color: #741e1e;">
+          <center style="color: #ffff;">Designed by <a style="color: #DCC532;"><strong><span>TeamDosan</span></strong></a></center>
+        </div>
+        <!--================ End footer Area  =================-->
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="{% static 'st/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'st/js/popper.js' %}"></script>
+        <script src="{% static 'st/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'st/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'st/js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'st/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js' %}"></script>
+        <script src="{% static 'st/vendors/nice-select/js/jquery.nice-select.js' %}"></script>
+        <script src="{% static 'st/js/mail-script.js' %}"></script>
+        <script src="{% static 'st/js/stellar.js' %}"></script>
+        <script src="{% static 'st/vendors/lightbox/simpleLightbox.min.js' %}"></script>
+        <script src="{% static 'st/js/custom.js' %}"></script>
+
+</body>
+
+</html>

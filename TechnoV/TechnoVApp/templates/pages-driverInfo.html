@@ -1,0 +1,292 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="static/assets/img/favtest.png" type="image/png">
+        <title>TechnoV</title>
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'st/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/linericon/style.css' %}">
+        <link rel="stylesheet" href="{% static 'st/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/nice-select/css/nice-select.css' %}">
+        <link rel="stylesheet" href="{% static 'st/vendors/owl-carousel/owl.carousel.min.css' %}">
+        <!-- main css -->
+        <link rel="stylesheet" href="{% static 'st/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'st/css/responsive.css' %}">
+    </head>
+    <style>
+        .color{
+          background-color: #781B1B;
+          font-family: Montserrat;
+        }
+        body{
+          background-color: #781B1B;
+          font-family: Montserrat;
+        }
+        .bton{
+          margin-top: 10in;
+          font-family: Montserrat;
+        }
+        .fnt{
+          font-family: Montserrat;
+        }
+        .txt{
+          font-size: 30px; 
+          color: black; 
+          background-color: #ffff;
+        }
+        .btn{
+          color: #ffdf16;
+        }
+        .css-button-rounded--grey {
+        min-width: 220px;
+        height: 40px;
+        color: #741e1e;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        border-radius: 5px;
+        border: 2px solid #e5c522;
+        background: #e5c522;
+        }
+
+      .css-button1-rounded--grey {
+        min-width: 220px;
+        height: 40px;
+        color: #741e1e;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        display: inline-block;
+        outline: none;
+        border-radius: 5px;
+        border: 2px solid #ffff;
+        background: #ffff;
+      }
+      .css-button-rounded--grey:hover {
+        background: #741e1e;
+        color: #e5c522
+      }
+      .css-button1-rounded--grey:hover {
+        background: #ffff;
+        color: #e5c522
+      }
+      label, legend{
+        font-family: Montserrat;
+        color: #741e1e;
+        font-weight: 700;
+      }
+
+    </style>
+    <body>
+        <!--================Header Area =================-->
+        <header class="header_area color">
+            <div class="container color">
+                <nav class="navbar navbar-expand-lg navbar-light color"  style="box-shadow: 2px 5px #610A0C;">
+                    <a class="navbar-brand logo_h" href="userDashboard"><img src="{% static 'assets/img/technov1.jpg' %}" alt="" height="80px" width=""></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto">
+                            <li class="nav-item active"><a class="nav-link" href="{% url 'userDashboard_page_view'%}" style="font-family: Montserrat;font-size: larger; color: #ffdf16;">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{% url 'loginoptions_page_view'%}" style="font-family: Montserrat; font-size: larger; color: #ffdf16;">Sign Out</a></li>
+                        </ul>
+                    </div> 
+                </nav>
+            </div>
+        </header><br>
+        <!--================Header Area =================-->
+        
+        <!--================ Accomodation Area  =================-->
+        <main>
+            <div class="container">
+              <!-- <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4"> -->
+                <div class="container">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                        <a href="userDashboard" class="logo d-flex align-items-left w-auto">
+                          </a>
+                      <div class="card mb-3">
+                        <div class="card-body" style="background-color: #ffff;">
+                          <div class="pt-4 pb-2">
+                            <br><br>
+                            <h5 class="card-title text-center pb-0 fs-4" style="color:#741e1e;font-family: 'Montserrat'; font-size: 30px;">Vehicle Information</h5>
+                            
+                          </div>
+                          {% for r in registered %}
+                          <form class="row g-3 needs-validation" method = "post" novalidate>
+                            {%  csrf_token  %}
+                            <!-- Identifier -->
+                            <div class="col-md-6">
+                              <label for="inputIdentifier" class="form-label" style="color:#741e1e; font-family: Montserrat;">Identifier</label>
+                              <input type="text" name="identifier" class="form-control" id="identifier" value="{{r.identifier}}" readonly>
+                            </div>
+        
+                            <!-- End Identifier-->
+                            <!-- Classification -->
+                            <div class="col-md-6">
+                              <label for="inputClassification" class="form-label" style="color:#741e1e">Classification</label>
+                              <input type="text" name="classification" class="form-control" id="classification" value="{{r.classification}}" readonly>
+                            <br>
+                            </div>
+                            <!-- End Classification -->
+                            <!-- Applicant's Fullname -->
+                              <br><legend class="col-12" style="color:#741e1e">Name of the Appicant/Driver</legend>
+                              <div class="col-14">
+                                <div class="col-12">
+                                  <label for="lastName" class="form-label">Lastname</label>
+                                  <input type="text" name="lastname" class="form-control" id="lastname" value="{{r.lastname}}" readonly>
+                                  
+                              </div>
+                              <div class="col-12">
+                                <label for="firstName" class="form-label">Firstname</label>
+                                <input type="text" name="firstname" class="form-control" id="firstname" value="{{r.firstname}}" readonly>
+                                </div>
+                              <div class="col-12">
+                                <label for="middleName" class="form-label">Middlename</label>
+                                <input type="text" name="middlename" class="form-control" id="middlename" value="{{r.middlename}}" readonly>
+                                </div>
+                            <!-- End Applicant's Fullname -->
+                            <!-- Departments -->
+                            <div class="col-md-12">
+                              <label for="inputDepartment" class="form-label" style="color:#741e1e">Department</label>
+                              <input type="text" name="department" class="form-control" id="department" value="{{r.department}}" readonly>
+                                
+                            </div>
+                            <!-- End Departments -->
+                            <!-- Course and Year -->
+                            <div class="col-12">
+                              <label for="CourseYear" class="form-label" style="color:#741e1e">Course and Year</label>
+                              <input type="text" name="courseyr" class="form-control" id="CourseYear" value="{{r.courseyr}}" readonly>
+                              </div>
+                            <!-- End of Course and Year-->
+                            <!-- ID Number -->
+                            <div class="col-12">
+                              <label for="idnumber" class="form-label" style="color:#741e1e">ID Number</label>
+                              <input type="text" name="idnumber" class="form-control" id="idnumber" placeholder="20-1234-567" value="{{r.idnumber}}" readonly>
+                              </div>
+                            <!-- End ID Number -->
+                            <!-- Vehicle's Registered Owner -->
+                              <br><legend class="col-12" style="color:#741e1e">Name of the Vehicle Registered Owner</legend>
+                              <div class="col-14">
+                                <div class="col-12">
+                                  <label for="Ownerlname" class="form-label">Lastname</label>
+                                  <input type="text" name="Ownerlname" class="form-control" id="Ownerlname" value="{{r.Ownerlname}}" readonly>
+                                  
+                              </div>
+                              <div class="col-12">
+                                <label for="Ownerfname" class="form-label">Firstname</label>
+                                <input type="text" name="Ownerfname" class="form-control" id="Ownerfname" value="{{r.Ownerfname}}" readonly>
+                                </div>
+                              <div class="col-12">
+                                <label for="Ownermname" class="form-label">Middlename</label>
+                                <input type="text" name="Ownermname" class="form-control" id="Ownermname" value="{{r.Ownermname}}" readonly>
+                                </div>
+                            <!-- End Vehicle's Registered Owner Fullname -->
+                            <!-- Address -->
+                            <div class="col-12">
+                              <label for="address" class="form-label" style="color:#741e1e">Address</label>
+                              <input type="text" name="address" class="form-control" id="address" value="{{r.address}}" readonly>
+                              </div>
+                            <!-- End Address -->
+                            <!-- Mobile Number -->
+                            <div class="col-12">
+                              <label for="mobnum" class="form-label" style="color:#741e1e">Mobile Number</label>
+                              <input type="text" name="mobnum" class="form-control" id="mobnum" value="{{r.mobnum}}" readonly>
+                              </div>
+                            <!-- End Mobile Number -->
+                            <!-- Landline Number -->
+                            <div class="col-12">
+                              <label for="landline" class="form-label" style="color:#741e1e">Landline Number</label>
+                              <input type="text" name="landline" class="form-control" id="landline" value="{{r.landline}}" readonly>
+                              </div>
+                            <!-- End Landline Number -->
+                            <!-- Relation of Vehicle Owner to Student/Employee -->
+                            <div class="col-12">
+                              <label for="relation" class="form-label" style="color:#741e1e">Relation of vehicle's registered owner to student/employee</label>
+                              <input type="text" name="relation" class="form-control" id="relation" value="{{r.relation}}" readonly>
+                              </div>
+                            <!-- End Relation of Vehicle Owner to Student/Employee -->
+                            <!-- Vehicle's Data -->
+                              <br><legend class="col-12" style="color:#741e1e">Vehicle's Data</legend>
+                              <div class="col-14">
+                                <div class="col-12">
+                                  <label for="brand" class="form-label">Vehicle Make</label>
+                                  <input type="text" name="brand" class="form-control" id="brand" value="{{r.brand}}" readonly>
+                                  
+                              </div>
+                              <div class="col-12">
+                                <label for="platenumber" class="form-label">Plate Number</label>
+                                <input type="text" name="platenumber" class="form-control" id="platenumber" value="{{r.platenumber}}" readonly>
+                                </div>
+                              <div class="col-md-12">
+                                <label for="vehicleType" class="form-label">Vehicle Type</label>
+                                <input type="text" name="vehicleType" class="form-control" id="vehicleType" value="{{r.vehicleType}}" readonly>
+                              </div>
+                              <div class="col-12">
+                                <label for="color" class="form-label">Color</label>
+                                <input type="text" name="color" class="form-control" id="color" value="{{r.color}}" readonly>
+                                </div>
+                              <div class="col-12">
+                                <label for="prevStickerNo" class="form-label">Previous Year's CIT Car Sticker Number</label>
+                                <input type="text" name="prevStickerNo" class="form-control" id="prevStickerNo" value="{{r.prevStickerNo}}" readonly>
+                                </div>
+                              <!-- End Vehicle's Data -->
+                            
+                          </form>
+                          {% endfor %}
+                        </div>
+                      </div>
+        
+        
+                    </div>
+                  </div>
+                </div>
+        
+              </section>
+        
+            </div>
+          </main><br><br>
+        <!--================ Accomodation Area  =================-->
+        
+        <!--================ start footer Area  =================-->    
+        <!-- Copyright -->
+        <div class="text-center text-lg-start" style="position: fixed; bottom: 0; width: 100%; height: 60px; background-color: #781B1B; opacity: 0.95; border-color: #741e1e;">
+          <center style="color: #ffff;">Designed by <a style="color: #DCC532;"><strong><span>TeamDosan</span></strong></a></center>
+        </div>
+        <!-- Copyright -->
+        <!--================ End footer Area  =================-->
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{% static 'st/js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'st/js/popper.js' %}"></script>
+        <script src="{% static 'st/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'st/vendors/owl-carousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'st/js/jquery.ajaxchimp.min.js' %}"></script>
+        <script src="{% static 'st/vendors/bootstrap-datepicker/bootstrap-datetimepicker.min.js' %}"></script>
+        <script src="{% static 'st/vendors/nice-select/js/jquery.nice-select.js' %}"></script>
+        <script src="{% static 'st/js/mail-script.js' %}"></script>
+        <script src="{% static 'st/js/stellar.js' %}"></script>
+        <script src="{% static 'st/vendors/lightbox/simpleLightbox.min.js' %}"></script>
+        <script src="{% static 'st/js/custom.js' %}"></script>
+    </body>
+</html>

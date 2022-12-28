@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<Style>
+  .css-button-rounded--grey {
+  min-width: 280px;
+  height: 40px;
+  color: #741e1e;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #e5c522;
+  background: #e5c522;
+}
+.css-button1-rounded--grey {
+  min-width: 280px;
+  height: 40px;
+  color: #741e1e;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid #ffff;
+  background: #ffff;
+}
+.css-button-rounded--grey:hover {
+  background: #741e1e;
+  color: #e5c522
+}
+.css-button1-rounded--grey:hover {
+  background: #ffff;
+  color: #e5c522
+}
+
+</Style>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="icon" href="static/assets/img/favtest.png" type="image/png">
+  <title>TechnoV</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.snow.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/simple-datatables/style.css' %}" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style2.css' %}" rel="stylesheet">
+
+</head>
+<body>
+      <div class="col-md-12 text-center"><br>
+        <img src="{% static 'assets/img/CIT-U.jpg' %}" alt="" width="320" height="70"><br><br><br><br><br>
+          <span class="col-md-12 text-center"><img src="{% static 'assets/img/TechnoV.jpg' %}" alt="" width="350" height="70"></span>
+          <br><br><br><br><br>
+          <a href="login">
+          <br><br>
+          <p style="font-family: 'Montserrat', sans-serif; color: #781B1B; text-shadow:1px 1px #fff, -1px 1px #fff, 1px -1px #fff, -1px -1px #fff, 1px 1px 5px #555;" > LOG IN AS </p>
+          <button type="button" class="css-button1-rounded--grey css-button1-rounded--grey:hover " style = "font-family: 'Montserrat', sans-serif;" >USER</button> </a>
+          <br><p style="font-family: 'Montserrat'; color:#ffff" >_______________ OR _______________</p>
+          <a href="admin/login"><button type="button" class="css-button-rounded--grey css-button-rounded--grey:hover " style = "font-family: 'Montserrat', sans-serif;" >ADMINISTRATOR</button></a>
+        
+      </div>
+
+      <!--================ start footer Area  =================-->    
+      <footer class="bg-light text-center text-lg-start">
+        <div class="text-center text-lg-start" style="position: fixed; bottom: 0; width: 100%; height: 60px; background-color: #781B1B; opacity: 0.95; border-color: #741e1e;">
+          <center style="color: #ffff;">Designed by <a style="color: #DCC532;"><strong><span>TeamDosan</span></strong></a></center>
+        </div>
+      </footer>
+      <!--================ End footer Area  =================-->
+</body>
+</html>
